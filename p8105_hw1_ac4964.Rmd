@@ -40,3 +40,18 @@ mean(pull(samp_df,samp_factor))
 
 R can only take the mean of the random sampe of 10 from a standard Normal distribution (numeric) and the logical vector.
 It cannot take the mean of character vector and factor vector and therefore returning NA.
+
+
+```{r}
+# Applies as.numeric function to the logical, character, and factor variables.
+
+as.numeric(pull(samp_df,greater_than_0))
+as.numeric(pull(samp_df,samp_character))
+as.numeric(pull(samp_df,samp_factor))
+
+
+```
+
+When R convert logical vector to numeric variables, it uses 0 to represent FALSE and 1 to represent TRUE. Therefore R was able to take the mean of a logical vector.
+Since my charactor vector contains text data only, therefore R cannot convert it to numeric variables.
+When R convert factor to numeric vector, it returns the numeric codes that correspond to the levels of the factor. Therefore, it returns "1" for "apple", "2" for "peach" and "3" for "strawberry".
