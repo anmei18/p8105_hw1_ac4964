@@ -74,3 +74,9 @@ mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 The name of this dataset is called "Size measurements for adult foraging penguins near Palmer Station, Antarctica", and it is a subset of penguins_raw. It contains data of three species of penguins(Adelie, Chinstrap,Gentoo) of three islands (Biscoe, Dream,Torgersen), from 2007 to 2009. It includes the size measurements for penguins from Palmer Archipelago, such as the flipper length and body mass. It contains 344 rows and 8 columns/variables : species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g,
 sex, year. The mean flipper length of the penguins in this dataset is 200.9152 mm.
+
+```{r}
+# make a scatterplot of flipper_length_mm(y) vs bill_length_mm(x)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+```
