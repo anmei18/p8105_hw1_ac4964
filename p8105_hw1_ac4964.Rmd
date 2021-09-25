@@ -2,7 +2,28 @@
 title: "p8105_hw1_ac4964"
 author: "ac4964"
 date: "9/24/2021"
-output: html_document
+output: github_document
 ---
 
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+
+#Problem 1
+
+```{r}
+set.seed(1)
+
+samp_df = 
+  tibble(
+    samp = rnorm(10),
+   greater_than_0 = samp > 0,
+    samp_character = c("apple","strawberry","strawberry","peach","apple","peach","peach","apple", "peach","strawberry"),
+    samp_factor = factor(samp_character)
+)
+
+
+```
 
