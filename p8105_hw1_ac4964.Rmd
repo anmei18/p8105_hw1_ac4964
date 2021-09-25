@@ -27,3 +27,16 @@ samp_df =
 
 ```
 
+
+```{r}
+
+#take the mean of each vaiable in the dataframe.
+mean(pull(samp_df,samp))
+mean(pull(samp_df,greater_than_0))
+mean(pull(samp_df,samp_character))
+mean(pull(samp_df,samp_factor))
+
+```
+
+R can only take the mean of the random sampe of 10 from a standard Normal distribution (numeric) and the logical vector.
+It cannot take the mean of character vector and factor vector and therefore returning NA.
