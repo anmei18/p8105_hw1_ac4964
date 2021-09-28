@@ -45,6 +45,7 @@ It cannot take the mean of character vector and factor vector and therefore retu
 ```{r}
 # Apply as.numeric function to the logical, character, and factor variables.
 
+as.numeric(pull(samp_df,samp))
 as.numeric(pull(samp_df,greater_than_0))
 as.numeric(pull(samp_df,samp_character))
 as.numeric(pull(samp_df,samp_factor))
@@ -56,11 +57,12 @@ When R convert logical vector to numeric variables, it uses 0 to represent FALSE
 Since my charactor vector contains text data only, therefore R cannot convert it to numeric variables.
 When R convert factor to numeric vector, it returns the numeric codes that correspond to the levels of the factor. Therefore, it returns "1" for "apple", "2" for "peach" and "3" for "strawberry".
 
-#Problem 2
 
+#Problem 2
 
 ```{r }
 
+#loads penguins dataset
 data("penguins",package = "palmerpenguins")
 
 ```
@@ -68,10 +70,12 @@ data("penguins",package = "palmerpenguins")
 The name of this dataset is called "Size measurements for adult foraging penguins near Palmer Station, Antarctica", and it is a subset of penguins_raw. It contains data of three species of penguins(`r levels(penguins$species)`) of three islands (`r levels(penguins$island)`), from 2007 to 2009. It includes the size measurements for penguins from Palmer Archipelago, such as the flipper length and body mass. It contains `r nrow(penguins)` rows and `r ncol(penguins)` columns/variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, year. The mean flipper length of the penguins in this dataset is `r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)`mm.
 
 
-```{r}
+```{r warning=FALSE}
 # make a scatterplot of flipper_length_mm(y) vs bill_length_mm(x)
 
 penguin_plot <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+penguin_plot
 
 ggsave("Penguin_scatterplot.pdf", plot = penguin_plot)
 ```
